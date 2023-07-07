@@ -1,0 +1,76 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background: rgb(0,217,255);
+    background: radial-gradient(circle, rgba(0,217,255,1) 0%, rgba(9,99,121,1) 100%);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.slider {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    transform-style: preserve-3d;
+    animation: rotate 30s linear infinite;
+}
+
+@keyframes rotate {
+    0% {
+        transform: perspective(1000px) rotateY(0deg);
+    }
+    100% {
+        transform: perspective(1000px) rotateY(360deg);
+    } 
+} 
+
+.slider div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform-origin: center;
+    transform: rotateY(calc(var(--i) * 45deg)) translateZ(350px);
+}
+
+.slider div img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgb(254,249,215);
+    background: radial-gradient(circle, rgb(255, 252, 237) 0%, rgb(250, 224, 187) 100%);
+    border-radius: 10px;
+    transition: 2s;
+}
+
+.slider div .info {
+    position: absolute;
+    top: 210px;
+    left: 0;
+    padding: 10px;
+    width: 200px;
+    background: rgb(252, 207, 152);
+    border-radius: 5px;
+}
+
+.slider div:hover img {
+    transform: translateY(-50px) scale(1.2);
+    cursor: grab;
+
+}
+
+.slider .titulo {
+    position: absolute;
+    top: -200px;
+    left: -180px;
+}
