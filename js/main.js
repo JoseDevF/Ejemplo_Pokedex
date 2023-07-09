@@ -1,18 +1,18 @@
 const getCharacters = (done) => {
-    
+
     const results = fetch(`https://pokeapi.co/api/v2/pokemon/`)
 
     results
         .then((response) => response.json())
-        .then((data) =>  {
+        .then((data) => {
             done(data);
         }); //console.log(done)
- }
+}
 
 getCharacters(data => {
 
     data.results.forEach(personaje => {
-        
+
         const article = document.createRange().createContextualFragment(`
         <div class="slider">
             <span class="titulo">
@@ -30,11 +30,12 @@ getCharacters(data => {
         </div>
         `);
 
-    const main = document.querySelector("main");
-    main.append(article)
-    
+        const main = document.querySelector("main");
+        main.append(article)
+
     });
 })
+
 
 /* const pokemonContainer = document.querySelector(".pokemon-container"); */
 
